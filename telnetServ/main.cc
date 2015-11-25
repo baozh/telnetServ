@@ -19,7 +19,7 @@ int testNoTimePrintf()
 
 int main()
 {
-	//×¢²átelnetµ÷ÊÔÃüÁî
+	//register telnet call back function
 	gTelServ.regCommand("tt", (void *)testTimePrintf, "print dcServer version");
 	gTelServ.regCommand("tn", (void *)testNoTimePrintf, "print dcServer version");
 
