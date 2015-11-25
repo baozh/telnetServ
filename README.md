@@ -13,9 +13,11 @@
 		#include <telnetServ/telnetServ.h>
 
 	在main.cc中定义一个全局变量：
+	
 		TelnetServer gTelServ;
 
 	在main函数中初始化：
+	
 		gTelServ.init();
 
 2. 注册回调函数：
