@@ -23,14 +23,14 @@
 	例：
 	定义一个回调函数：
 	```cpp
-		int connstat()
+	int connstat()
+	{
+		if (pdcserver != NULL)
 		{
-			if (pdcserver != NULL)
-			{
-				pdcserver->getServerLoop()->runInLoop(boost::bind(&DCServer::printTelConnStat, pdcserver));
-			}
-			return 0;
+			pdcserver->getServerLoop()->runInLoop(boost::bind(&DCServer::printTelConnStat, pdcserver));
 		}
+		return 0;
+	}
 	```
 	在main函数中注册此回调函数及提示信息（尤其是函数参数的意义）：
 		gTelServ.regCommand("connstat", (void *)connstat, "print all conn stat");
@@ -51,6 +51,5 @@
 	输入：telhelp    可看到注册到telnet的回调函数列表，帮助提示信息.
 	输入：connstat   即执行注册的回调函数connstat
 
-
-注：向telnet注册的回调函数是在telnet线程环境中执行的，要注意它是否访问了共享数据，要保证它是线程安全的。
+	注：向telnet注册的回调函数是在telnet线程环境中执行的，要注意它是否访问了共享数据，要保证它是线程安全的。
 
