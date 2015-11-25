@@ -1,8 +1,6 @@
 
 #telnet监控线程
 
-----------------------
-
 功能：
 
 - 外部可通过telnet，输出打印信息到 telnet窗口中。
@@ -11,6 +9,7 @@
 使用方法：
 
 1. 添加头文件、定义全局变量、初始化
+
 		#include <telnetServ/telnetServ.h>
 
 	在main.cc中定义一个全局变量：
@@ -23,7 +22,7 @@
 
 	例：
 	定义一个回调函数：
-	
+	```cpp
 		int connstat()
 		{
 			if (pdcserver != NULL)
@@ -32,6 +31,7 @@
 			}
 			return 0;
 		}
+	```
 	在main函数中注册此回调函数及提示信息（尤其是函数参数的意义）：
 		gTelServ.regCommand("connstat", (void *)connstat, "print all conn stat");
 
