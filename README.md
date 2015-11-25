@@ -35,6 +35,7 @@
 	}
 	```
 	在main函数中注册此回调函数及提示信息（尤其是函数参数的意义）：
+	
 		gTelServ.regCommand("connstat", (void *)connstat, "print all conn stat");
 
 3. 输出打印到 telnet终端：
